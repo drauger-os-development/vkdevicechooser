@@ -20,6 +20,8 @@ meson compile -C builddir
 meson install -C builddir
 set +eE
 
+mkdir -p usr/share/man/man1
+cp vkdevicechooser.1 usr/share/man/man1/
 ##############################################################
 #							     #
 #							     #

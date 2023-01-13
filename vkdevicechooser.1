@@ -1,0 +1,77 @@
+.\"Modified from man(1) of FreeBSD, the NetBSD mdoc.template, and mdoc.samples.
+.\"See Also:
+.\"man mdoc.samples for a complete listing of options
+.\"man mdoc for the short list of editing options
+.\"/usr/share/misc/mdoc.template
+.Dd 1/12/23               \" DATE
+.Dt vkdevicechooser 1      \" Program name and manual section number
+.Os Linux
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm vkdevicechooser
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line.
+.\" Use .Nm macro to designate other names for the documented program.
+.Nd Vulkan layer to force a specific physical device to be used
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+Vulkan layer to force a specific physical device to be used. This is useful for Vulkan games which do not provide an option to choose the device themselves, or multi-GPU setups without a way to set it system-wide.
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+Simple Vulkan layer to force a specific physical device to be used. This is useful for Vulkan games which do not provide an option to choose the device themselves, or multi-GPU setups without a way to set it system-wide.
+
+
+To enable, set the environment variable:
+
+
+.B ENABLE_DEVICE_CHOOSER_LAYER=1
+
+or
+
+.B DEVICE_CHOOSER_LAYER=1
+
+
+Then, simply set the
+.B VULKAN_DEVICE_INDEX
+environment variable to the corresponding GPU id provided by
+.I vulkaninfo:
+
+
+.I vulkaninfo | grep "GPU id"
+
+
+This will have Vulkan use that GPU for rendering tasks. This can be implemented system-wide, by putting the following in
+.I /etc/environment,
+or on an user-by-user basis by putting the following in a user's
+.I .profile
+file in their home directory:
+
+
+.B export ENABLE_DEVICE_CHOOSER_LAYER=1
+
+.B export VULKAN_DEVICE_INDEX=1
+
+
+or on a per application basis (i.e., Steam games):
+
+
+.B ENABLE_DEVICE_CHOOSER_LAYER=1 VULKAN_DEVICE_INDEX=1 %command%
+.Sh FILES                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It Pa /usr/share/vulkan/implicit_layer.d/vkdevicechooser.json
+Layer configuration file
+.It Pa /usr/lib/x86_64-linux-gnu/libvkdevicechooser.so
+Shared-Object library file
+.El                      \" Ends the list
+.\" .Sh DIAGNOSTICS       \" May not be needed
+.\" .Bl -diag
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .El
+.Sh SEE ALSO
+.\" List links in ascending order by section, alphabetically within a section.
+.\" Please do not reference files that do not exist without filing a bug report
+.Xr vulkaninfo 1 ,
+.Xr grep 1,
+.Xr environment.d 5
+.\" .Sh BUGS              \" Document known, unremedied bugs
+.\" .Sh HISTORY           \" Document history if command behaves in a unique manner
