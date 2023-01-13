@@ -66,6 +66,9 @@ base="$PWD"
 cd ..
 #DELETE STUFF HERE
 rm -rfv "$base"/usr
+if [ -d "$base"/builddir ]; then
+	rm -rfv "$base"/builddir
+fi
 #build the shit
 dpkg-deb --build "$FOLDER"
 rm -rf "$FOLDER"
