@@ -1,6 +1,12 @@
 #include "vulkan/vulkan.h"
 #include "vulkan/vk_layer.h"
-#include "vulkan/vulkan/vk_layer_dispatch_table.h"
+
+// Conditional support for vk_layer_dispatch_table.h in it's different locations
+#if __has_include("vulkan/vk_layer_dispatch_table.h")
+    #include "vulkan/vk_layer_dispatch_table.h"
+#else
+    #include "vulkan/vulkan/vk_layer_dispatch_table.h"
+#endif
 
 #include <cstdio>
 #include <cstdlib>
