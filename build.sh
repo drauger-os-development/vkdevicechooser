@@ -28,6 +28,12 @@ set +eE
 #							     #
 #							     #
 ##############################################################
+mkdir -p usr/share/doc/$PAK
+git log > usr/share/doc/$PAK/changelog
+cd usr/share/doc/$PAK
+tar --verbose --create --xz -f changelog.gz changelog 1>/dev/null
+rm changelog
+cd ../../../..
 if [ -d bin ]; then
 	cp -R bin ../"$FOLDER"/bin
 fi
@@ -56,12 +62,6 @@ if [ -d opt ]; then
 	cp -R opt ../"$FOLDER"/opt
 fi
 cp -R DEBIAN ../"$FOLDER"/DEBIAN
-mkdir -p usr/share/doc/$PAK
-git log > usr/share/doc/$PAK/changelog
-cd usr/share/doc/$PAK
-tar --verbose --create --xz -f changelog.gz changelog 1>/dev/null
-rm changelog
-cd ../../../..
 base="$PWD"
 cd ..
 #DELETE STUFF HERE

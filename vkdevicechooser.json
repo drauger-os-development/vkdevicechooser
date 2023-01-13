@@ -12,10 +12,12 @@
             "vkGetDeviceProcAddr": "DeviceChooserLayer_GetDeviceProcAddr"
         },
         "enable_environment": {
-            "ENABLE_DEVICE_CHOOSER_LAYER": "1"
+            "ENABLE_DEVICE_CHOOSER_LAYER": "1",
+            "DEVICE_CHOOSER_LAYER": "1"
         },
         "disable_environment": {
-            "DISABLE_DEVICE_CHOOSER_LAYER": "1"
+            "DISABLE_DEVICE_CHOOSER_LAYER": "1",
+            "DEVICE_CHOOSER_LAYER": "0"
         }
     }
 }
