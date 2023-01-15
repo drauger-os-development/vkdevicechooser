@@ -28,13 +28,10 @@ or
 .B DEVICE_CHOOSER_LAYER=1
 
 
-Then, simply set the
-.B VULKAN_DEVICE_INDEX
-environment variable to the corresponding GPU id provided by
-.I vulkaninfo:
+Then, simply set the \fBVULKAN_DEVICE_INDEX\fR environment variable to the corresponding GPU id provided by \fIvulkaninfo\fP:
 
 
-.I vulkaninfo | grep "GPU id"
+\.B vulkaninfo | grep "GPU id"
 
 
 This will have Vulkan use that GPU for rendering tasks. This can be implemented system-wide, by putting the following in

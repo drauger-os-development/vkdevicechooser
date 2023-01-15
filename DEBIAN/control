@@ -1,10 +1,11 @@
 Package: vkdevicechooser
-Version: 0.1.6-alpha1
+Version: 0.1.7-alpha1
 Maintainer: Thomas Castleman <contact@draugeros.org>
 Homepage: https://github.com/drauger-os-development/vkdevicechooser
 Section: libs
 Architecture: amd64
 Priority: optional
+Recommends: vulkan-tools
 Depends: libvulkan-dev, vulkan-validationlayers-dev, libvulkan1, vulkan-validationlayers
 Description: Vulkan Device Chooser Layer
  Vulkan layer to force a specific physical device to be used. This is useful for Vulkan games which do not provide an option to choose the device themselves.
