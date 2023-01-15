@@ -46,7 +46,7 @@ static VkResult ChooseDevice(VkInstance                          instance,
                              VkPhysicalDevice&                   outDevice)
 {
     std::vector<VkPhysicalDevice> devices;
-    uint32_t count = 0;
+    unsigned int count = 0;
 
     VkResult result = dispatch.EnumeratePhysicalDevices(instance, &count, nullptr);
 
@@ -69,7 +69,7 @@ static VkResult ChooseDevice(VkInstance                          instance,
         return result;
     }
 
-    int deviceIndex = atoi(env);
+    unsigned int deviceIndex = atoi(env);
 
     if (deviceIndex >= count)
     {
